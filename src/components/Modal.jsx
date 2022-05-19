@@ -26,60 +26,61 @@ const Modal = () => {
     e.preventDefault();
     setDisableBtn(true);
 
-    const response = await fetch(
-      "https://api.openai.com/v1/engines/text-curie-001/completions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
-          mode: "no-cors"
-        },
-        body: JSON.stringify(data),
-        
-      }
-    ).then((res) => {
-      if (res.status === 401) {
-        setErrorMsg("server error");
-        setDisableBtn(false);
-        return;
-      } else {
-        return res.json();
-      }
-    });
+    try {
+      const response = await fetch(
+        "https://api.openai.com/v1/engines/text-curie-001/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
+            mode: "no-cors",
+          },
+          body: JSON.stringify(data),
+        }
+      ).then((res) => {
+        if (res.status === 401) {
+          setErrorMsg("server error");
+          setDisableBtn(false);
+          return;
+        } else {
+          return res.json();
+        }
+      });
 
-    response.prompt = data.prompt || "Auto Generated Prompt";
+      response.prompt = data.prompt || "Auto Generated Prompt";
 
-    // save item into local storage
-    let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    if (existingEntries === null) {
-      existingEntries = [];
+      // save item into local storage
+      let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+      if (existingEntries === null) {
+        existingEntries = [];
+      }
+      localStorage.setItem("entry", JSON.stringify(response));
+      existingEntries.push(response);
+      localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+      setViewResultItems(existingEntries);
+      setDisableBtn(false);
+      data.prompt = "";
+    } catch (error) {
+      console.log(error);
     }
-    localStorage.setItem("entry", JSON.stringify(response));
-    existingEntries.push(response);
-    localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-    setViewResultItems(existingEntries);
-    setDisableBtn(false);
-    data.prompt = "";
   };
 
   useEffect(() => {
-    if(errorMsg) {
+    if (errorMsg) {
       setTimeout(() => {
         setErrorMsg(false);
-      },3000)
-      
+      }, 3000);
     }
-  },[errorMsg])
+  }, [errorMsg]);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center p-5 shadow-xl mt-5 rounded-lg">
+    <section className="w-full flex flex-col items-center justify-center p-5 shadow-xl mt-5 rounded-lg ">
       <h4 className="font-semibold text-2xl sm:text-4xl">
         Have fun with Open AI
       </h4>
       <div className="w-full mt-2.5">
         <form
-          action="GET"
           className="w-full flex flex-col items-center justify-center"
         >
           <label className="p-1 mb-2 font-semibold text-lg ">
@@ -101,7 +102,11 @@ const Modal = () => {
 
           <button
             type="submit"
-            className={`${disableBtn ? "w-[80%] mt-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold" : "w-[80%] mt-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold"}`}
+            className={`${
+              disableBtn
+                ? "w-[80%] mt-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold"
+                : "w-[80%] mt-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold"
+            }`}
             onClick={handleSubmit}
             disabled={disableBtn}
           >
