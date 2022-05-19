@@ -37,6 +37,7 @@ const Modal = () => {
           Authorization: `Bearer ${secret_key}`,
         },
         body: JSON.stringify(data),
+        
       }
     ).then((res) => {
       if (res.status === 401) {
