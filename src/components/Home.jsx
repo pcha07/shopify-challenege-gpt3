@@ -21,7 +21,7 @@ const Home = () => {
         setBackToTopBtn(false);
       }
     });
-  }, []);
+  }, [backToTopBtn]);
 
   // when user clicks the back to top button handle the scroll back to top of page
   const scrollToTop = () => {
@@ -31,26 +31,20 @@ const Home = () => {
     });
   };
   return (
-    <div
-      className={`${
-        viewResultItems.length === 0
-          ? "w-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden overflow-y-hidden"
-          : "w-full h-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden"
-      }`}
-    >
+    <section className={`${viewResultItems.length === 0 ? "w-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden overflow-y-hidden" : "w-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden"} `}>
       {/* Modal to enter search parameters */}
       {backToTopBtn && (
-        <button onClick={scrollToTop} className="rounded-full text-[#5D3FD3] ">
+        <button onClick={scrollToTop} className="rounded-full text-[#5D3FD3]">
           <BsArrowUpCircleFill
             size={40}
-            className="cursor-pointer mr-2 mt-3 fixed bottom-7 right-5 z-50 bg-white rounded-full"
+            className="cursor-pointer mr-2 mt-3 fixed bottom-7 right-4 z-50 bg-white rounded-full"
           />
         </button>
       )}
       <Modal />
       {/* container to show search results */}
       <Results />
-    </div>
+    </section>
   );
 };
 

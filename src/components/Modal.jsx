@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { resultItems } from "../atoms/responseAtoms";
 
@@ -32,7 +32,7 @@ const Modal = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
+          Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
         },
         body: JSON.stringify(data),
       }
@@ -61,6 +61,14 @@ const Modal = () => {
     data.prompt = "";
   };
 
+  useEffect(() => {
+    if(errorMsg) {
+      setTimeout(() => {
+        setErrorMsg(false);
+      },3000)
+    }
+  },[errorMsg])
+
   return (
     <section className="w-full flex flex-col items-center justify-center p-5 shadow-xl mt-5 rounded-lg">
       <h4 className="font-semibold text-2xl sm:text-4xl">
@@ -82,10 +90,15 @@ const Modal = () => {
             value={data.prompt}
             maxLength={150}
           />
-          <p className="text-red-500 mt-2 font-bold text-[18px]">{errorMsg}</p>
+          {errorMsg && (
+            <p className="text-red-500 mt-2 font-bold text-[18px]">
+              {errorMsg}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="w-[80%] mt-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold"
+            className={`${disableBtn ? "w-[80%] mt-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold" : "w-[80%] mt-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold"}`}
             onClick={handleSubmit}
             disabled={disableBtn}
           >
