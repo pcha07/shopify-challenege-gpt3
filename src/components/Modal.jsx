@@ -8,7 +8,7 @@ const Modal = () => {
   // if there is an error, set error message
   const [errorMsg, setErrorMsg] = useState("");
 
-  const secret_key = process.env.REACT_APP_OPENAI_SECRET || "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"
+  const secret_key = "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"
 
   // preset data, prompt is updated by the user
   const [data, setData] = useState({
