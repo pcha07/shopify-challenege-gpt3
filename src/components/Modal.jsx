@@ -7,6 +7,7 @@ const Modal = () => {
   const [viewResultItems, setViewResultItems] = useRecoilState(resultItems);
   // if there is an error, set error message
   const [errorMsg, setErrorMsg] = useState("");
+  const secretKey = "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"
 
   // preset data, prompt is updated by the user
   const [data, setData] = useState({
@@ -32,7 +33,7 @@ const Modal = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
+          Authorization: `Bearer ${secretKey}`,
           mode: "no-cors"
         },
         body: JSON.stringify(data),
