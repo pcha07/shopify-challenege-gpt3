@@ -8,6 +8,8 @@ const Modal = () => {
   // if there is an error, set error message
   const [errorMsg, setErrorMsg] = useState("");
 
+  const secret_key = process.env.REACT_APP_OPENAI_SECRET || "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"
+
   // preset data, prompt is updated by the user
   const [data, setData] = useState({
     prompt: "",
@@ -32,7 +34,7 @@ const Modal = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
+          Authorization: `Bearer ${secret_key}`,
         },
         body: JSON.stringify(data),
       }
