@@ -8,8 +8,6 @@ const Modal = () => {
   // if there is an error, set error message
   const [errorMsg, setErrorMsg] = useState("");
 
-  
-
   // preset data, prompt is updated by the user
   const [data, setData] = useState({
     prompt: "",
@@ -34,7 +32,7 @@ const Modal = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${REACT_APP_OPENAI_SECRET}`,
+          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
         },
         body: JSON.stringify(data),
       }
