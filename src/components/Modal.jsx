@@ -104,8 +104,8 @@ const Modal = () => {
             type="submit"
             className={`${
               disableBtn
-                ? "w-[60%] my-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
-                : "w-[60%] my-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
+                ? "w-[50%] my-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
+                : "w-[50%] my-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
             }`}
             onClick={handleSubmit}
             disabled={disableBtn}
