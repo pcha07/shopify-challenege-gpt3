@@ -18,9 +18,9 @@ const Result = ({ prompt, response, id, index }) => {
   };
 
   return (
-    <div className="rounded-md shadow-lg mt-5 flex flex-col justify-center w-full transition ease-in-out space-y-4 hover:scale-105 mx-auto flex-grow py-2 group ">
+    <div className="rounded-md shadow-lg mt-5 flex flex-col justify-center w-full transition ease-in-out  hover:scale-105 mx-auto flex-grow py-2 group ">
       {newest && (
-        <p className="text-[#5D3FD3] px-2 font-semibold text-lg animate-bounce flex items-center ">Most Recent
+        <p className="text-[#5D3FD3] p-2 font-semibold text-lg animate-bounce flex items-center ">Most Recent
         <BsFillStarFill className="ml-2"/>
         </p>
       )}
@@ -28,7 +28,7 @@ const Result = ({ prompt, response, id, index }) => {
         <h4 className="text-white font-semibold text-lg">Prompt -</h4>
         <p className="text-white px-6 font-semibold text-center">{prompt}</p>
       </div>
-      <div className=" flex items-center flex-col rounded-md justify-center space-y-2">
+      <div className=" flex items-center flex-col rounded-md justify-center space-y-2 mt-3">
         <h4 className="text-[#5D3FD3] font-medium text-lg">Response -</h4>
         <p className="font-semibold text-center md:text-justify px-6">
           {response}

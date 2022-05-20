@@ -88,7 +88,7 @@ const Modal = () => {
           </label>
           <textarea
             required
-            className="w-[60%] p-2.5 outline-none bg-gray-200 shadow-md placeholder:text-black/70"
+            className="w-[80%] md:w-[60%] p-2.5 outline-none bg-gray-200 shadow-md placeholder:text-black/70"
             onChange={(e) => setData({ ...data, prompt: e.target.value })}
             placeholder="ex. Write a poem about a dog wearing skis"
             value={data.prompt}
