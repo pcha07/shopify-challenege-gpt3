@@ -30,6 +30,7 @@ const Home = () => {
       behavior: "smooth",
     });
   };
+  console.log(viewResultItems);
   return (
     <section className={`${viewResultItems.length === 0 ? "w-full space-y-1 p-2.5 absolute top-16 overflow-x-hidden overflow-y-hidden" : "w-full space-y-1 p-2.5 absolute top-16 overflow-x-hidden"} `}>
       {/* Modal to enter search parameters */}
