@@ -31,7 +31,7 @@ const Home = () => {
     });
   };
   return (
-    <section className={`${viewResultItems.length === 0 ? "w-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden overflow-y-hidden" : "w-full space-y-1 p-2.5 absolute top-24 overflow-x-hidden"} `}>
+    <section className={`${viewResultItems.length === 0 ? "w-full space-y-1 p-2.5 absolute top-16 overflow-x-hidden overflow-y-hidden" : "w-full space-y-1 p-2.5 absolute top-16 overflow-x-hidden"} `}>
       {/* Modal to enter search parameters */}
       {backToTopBtn && (
         <button onClick={scrollToTop} className="rounded-full text-[#5D3FD3]">

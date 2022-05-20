@@ -75,7 +75,7 @@ const Modal = () => {
   }, [errorMsg]);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center p-5 shadow-xl mt-5 rounded-lg ">
+    <section className="w-full flex flex-col items-center justify-center p-3 shadow-xl mt-5 rounded-lg ">
       <h4 className="font-semibold text-2xl sm:text-4xl">
         Have fun with Open AI
       </h4>
@@ -104,8 +104,8 @@ const Modal = () => {
             type="submit"
             className={`${
               disableBtn
-                ? "w-[80%] mt-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold"
-                : "w-[80%] mt-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold"
+                ? "w-[60%] my-5 p-2 bg-gray-400 text-black font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
+                : "w-[60%] my-5 p-2 bg-[#5D3FD3] text-white font-semibold transition ease-in-out hover:scale-105 hover:font-bold text-lg"
             }`}
             onClick={handleSubmit}
             disabled={disableBtn}
