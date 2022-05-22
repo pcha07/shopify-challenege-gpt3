@@ -2,6 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Tech Stack
+- React
+- Tailwind Css
+- Recoil
+
+## Features
+- Open AI API
+- When user clicks generate button, the button is disabled until data is returned from the API
+- Responses are ordered from newest to oldest
+- User responses are saved in local storage 
+- User is able to delete a specific response
+- User is able to clear all responses
+- Responsive design
+- Back to top button when user scrolls down the list of responses
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
