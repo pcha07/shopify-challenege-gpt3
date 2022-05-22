@@ -7,12 +7,13 @@
 - Open AI API
 - When user clicks generate button, the button is disabled until data is returned from the API
 - Responses are ordered from newest to oldest
+- If no prompt is provided an auto generated prompt is sent to the API
 - User responses are saved in local storage 
 - User is able to delete a specific response
 - User is able to clear all responses
 - User is notified if there is a server error
 - Back to top button when user scrolls down the list of responses
-- Responsive design
+
 
 
 
