@@ -10,8 +10,9 @@
 - User responses are saved in local storage 
 - User is able to delete a specific response
 - User is able to clear all responses
-- Responsive design
+- User is notified if there is a server error
 - Back to top button when user scrolls down the list of responses
+- Responsive design
 
 
 
